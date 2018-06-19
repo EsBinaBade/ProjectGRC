@@ -1,0 +1,26 @@
+﻿
+<h4 align="center"> {{title}} Classification Level</h4>
+
+<form [formGroup]="levelForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-12">
+                <label>Classification Name</label>
+                <input type="text" formControlName="classificationName" class="form-control">
+                <div *ngIf="classificationName.errors && (classificationName.dirty || classificationName.touched)" class="alert-danger">
+                    <div [hidden]="!classificationName.errors.required">
+                        classificationName is required!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-danger" (click)="cancel()" type="button" style="height: 55px; width:30%">Cancel</button>
+
+                <button [disabled]="!levelForm.valid" type="submit" class="btn btn-default" style="height: 55px; width:30%">Next</button>
+            </div>
+        </div>
+    </div>
+
+</form>

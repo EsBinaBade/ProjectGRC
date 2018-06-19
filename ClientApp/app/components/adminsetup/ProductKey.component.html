@@ -1,0 +1,31 @@
+﻿
+<div class="container">
+    <div class="row">
+        <div class="col s8 offset-s2">
+            <div class="card grey lighten-2">
+                <form class="col s12 white" [formGroup]="ProductKeyForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+                    <div class="form-group row">
+                        <div class="input-field col s12">
+                            <label>ProductKey Name:</label>
+                            <input class="form-control" type="text" formControlName="productKeyName" minlength="5">
+                            <div *ngIf="productKeyName.errors && (productKeyName.dirty || productKeyName.touched)" class="alert alert-danger">
+                                <div [hidden]="!productKeyName.errors.required">
+                                    productKeyName Required
+                                </div>
+                                <div [hidden]="!productKeyName.errors.minlength">
+                                    productKeyName must be atleast 5 character
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <button [disabled]="!ProductKeyForm.valid" class="btn btn-default" type="submit">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

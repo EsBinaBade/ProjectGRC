@@ -1,0 +1,37 @@
+﻿<div class="col-sm-12">
+    <div class='col-sm-3'>
+        <nav-menu></nav-menu>
+    </div>
+    <div class="col-sm-6">
+        <div class="header" style="width:700px">
+            <h2 style="color:#33AD97">Organization Info Preview</h2>
+        </div>
+        <hr />
+        <p *ngIf="!audits"><em>Loading...</em></p>
+        
+        <table  border="1"  *ngIf="audits">
+            <thead>  
+                <tr>
+                    <th>Organization Name</th>
+                    <th>Legal Name</th>
+                    <th>Date and Time</th>
+                    <th>Edit Save</th>
+                    
+                    <th>Delete</th>
+                </tr>              
+            </thead>
+
+            <tbody>
+                <tr style="text-transform:uppercase" *ngFor="let org of audits">
+                    <td *ngIf="org.organizationId ===EditRowId"><input type="text" #organizationName /></td>
+                    <td *ngIf="org.organizationId !== EditRowId" (click)="Edit(org.organizationId)">{{org.organizationName}}</td>
+                    <!--<td >{{ org.organizationName }}</td>-->
+                    <td>{{ org.legalName }}</td>
+                    <td>{{ org.dateAndTime }}</td>
+                    <td><button type="button" class="btn btn-primary" (click)="Save(organizationName.value)">Edit</button></td>
+                    <td><button type="button" style="background-color:#e61616" class="btn btn-danger" (click)="deleteOrganization(org.organizationId)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>

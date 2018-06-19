@@ -1,0 +1,64 @@
+﻿
+
+<div class="col-sm-12">
+    <div class='col-sm-3'>
+    </div>
+    
+    <div class="col-sm-6">
+        
+        <div class="card">
+           <hr />
+            <h3 style="color:#33AD97; margin-left:25%;">{{title}} Organization</h3>
+       
+       <hr/>
+            <hr />
+        <form [formGroup]="organizationForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+            <div class="form-group row">
+                <label class=" control-label col-md-12">Organization Name</label>
+                <div class="col-md-12">
+                    <input class="form-control" type="text" formControlName="organizationName">
+                    <div *ngIf="organizationName.errors && (organizationName.dirty || organizationName.touched)" class="alert-danger">
+                        <div [hidden]="!organizationName.errors.required">
+                             organizationName is required!
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <label class="control-label col-md-12" for="LegalName">Legal Name</label>
+                <div class="col-md-12">
+                    <input class="form-control" type="text" formControlName="legalName" minlength="4">
+                    <div *ngIf="legalName.errors && (legalName.dirty || legalName.touched)" class="alert-danger">
+                        <div [hidden]="!legalName.errors.required">
+                            legalName is required!
+                        </div>
+                        <div [hidden]="!legalName.errors.minlength">
+                            legalName is atleast 3 character long!
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-md-12" for="DateAndTime">DateAndTime</label>
+                <div class="col-md-12">
+                    <input class="form-control" type="text" formControlName="dateAndTime">
+                    <div *ngIf="dateAndTime.errors && (dateAndTime.dirty || dateAndTime.touched)" class="alert-danger">
+                        <div [hidden]="!dateAndTime.errors.required">
+                            dateAndTime is required!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="form-group" style="margin-left:30%">
+                <button [disabled]="!organizationForm.valid" type="submit" class="btn btn-default" style="height: 55px; width:30%">Next</button>
+                <button class="btn btn-danger" type="button" (click)="cancel()" style="height: 55px; width:30%">Cancel</button>
+            </div>
+        </form>
+            <hr/>
+        </div>
+    </div>
+</div>

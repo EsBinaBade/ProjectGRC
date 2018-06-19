@@ -1,0 +1,25 @@
+﻿
+<div class="container">
+    <div class="row">
+        <div class="col s8 offset-s2">
+            <div class="card grey lighten-2">
+                <form #checkProductKeyForm="ngForm" class="col s12 white" (ngSubmit)="OnSubmit(productKeyName.value)">
+                    <div class="row">
+                        <h5 class="title" align="center" style="color:#33AD97;">Enter Product key</h5>
+                        <hr style="color:red" />
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" #productKeyName ngModel name="productKeyName" placeholder="Enter Product Key" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <button [disabled]="!checkProductKeyForm.valid" class="btn-large btn-submit" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

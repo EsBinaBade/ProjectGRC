@@ -1,0 +1,17 @@
+﻿body {
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+th {
+    text-transform: uppercase
+}
+
+    thead {
+        color: lightseagreen;
+    }
+
+tbody {
+    color: Black;
+}

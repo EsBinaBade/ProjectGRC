@@ -1,0 +1,31 @@
+﻿
+
+<h4 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Classification Level</h4>
+<h5 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Define Your Classification Level</h5>
+<br />
+
+
+<div class="col-md-12">
+    <table class="table" *ngIf="classificationLevel">
+        <thead>
+            <tr>
+                <th></th>
+                <th>ClassificationLevels</th>
+                <th><span class="glyphicon glyphicon-plus" [routerLink]="['/addClassificationLevel']" > </span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let levels of classificationLevel">
+                <td><span class="glyphicon glyphicon-edit" [routerLink]="['/editClassificationLevel/', levels.classificationLevelId]"></span></td>
+                <td>{{levels.classificationName}}</td>
+                <td><span class="glyphicon glyphicon-trash" (click)="DeleteClassificationLevel(levels.classificationLevelId)"></span></td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
+
+
+

@@ -1,0 +1,29 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="card grey lighten-2">
+                <div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width tabs-transparent">
+                        <li class="tab">
+                            <a routerLink='/entityInformation' routerLinkActive='active'>Entity Information</a>
+                        </li>
+                        <li class="tab">
+                            <a routerLink='/orgChart' routerLinkActive='active'>Organization Chart</a>
+                        </li>
+                        <li class="tab">
+                            <a routerLink='/classificationlevel' routerLinkActive='active'>Classification Level</a>
+                        </li>
+                        <li class="tab">
+                            <a routerLinkActive='active'>Document Template</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-content white">
+                    <div class="row">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

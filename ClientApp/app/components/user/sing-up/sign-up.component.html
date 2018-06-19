@@ -1,0 +1,58 @@
+﻿<form class="col s12 white" [formGroup]="userRegistrationForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <label>UserName</label>
+                        <input class="form-control" type="text" formControlName="userName">
+                        <!--<label data-error="Required field!">UserName</label>-->
+                        <div *ngIf="userName.errors && (userName.dirty || userName.touched)" class="alert-danger">
+                            <div [hidden]="!userName.errors.required">
+                                userName is required!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field col s6">
+                        <label>Password</label>
+                        <input class="form-control" type="password" formControlName="password" minlength="4">
+                        <!--<label [attr.data-error]="Password.errors!=null?(Password.errors.required?'Required field!':'Minimum 3 characters needed'):''">Password</label>-->
+                        <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert-danger">
+                            <div [hidden]="!password.errors.required">
+                                Password is required!
+                            </div>
+                            <div [hidden]="!password.errors.minlength">
+                                Password must be atleast 4 character long!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label>Email</label>
+                        <input class="form-control" type="text" formControlName="email" [pattern]="emailPattern">
+
+                        <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert-danger">
+                            <div [hidden]="!email.errors.required">
+                                Email is required!
+                            </div>
+                            <div [hidden]="!email.errors.pattern">
+                                Email is invalid!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input type="text" formControlName="firstName">
+                        <label>First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" formControlName="lastName">
+                        <label>Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" type="submit">Submit</button>
+                    </div>
+                </div>
+ </form>
+
